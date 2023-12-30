@@ -1,0 +1,32 @@
+fileFormatVersion: 2
+guid: 475af089d0ee4f44dbeba7d4b30eeccd
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_ViewDataDictionary: {instanceID: 0}
+  - _AITrafficController: {instanceID: 0}
+  - _AITrafficLightManager: {instanceID: 0}
+  - _AITrafficSpawnPoint: {instanceID: 0}
+  - _AITrafficStopManager: {instanceID: 0}
+  - _AITrafficWaypoint: {instanceID: 0}
+  - _AITrafficWaypointRoute: {instanceID: 0}
+  - _SplineRouteCreator: {instanceID: 0}
+  - _YieldTrigger: {instanceID: 0}
+  - SC_light: {instanceID: 0}
+  - SC_route: {instanceID: 0}
+  - RC_fromPoint: {instanceID: 0}
+  - RC_toPoint: {instanceID: 0}
+  - LC_routeA: {instanceID: 0}
+  - LC_routeB: {instanceID: 0}
+  - RE_route: {instanceID: 0}
+  - YT_route: {instanceID: 0}
+  - YT_waypoint: {instanceID: 0}
+  - YT_routeInfo: {instanceID: 0}
+  - STC_stop: {instanceID: 0}
+  - STC_route: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22e73598db06d56498ecaa4807e77b5c, type: 3}
+  m_Name: AssetReferences
+  m_EditorClassIdentifier: 
+  _AITrafficController: {fileID: 6626368814616383543, guid: 3d9b211974fa4c3ab0452351fefdcd3d,
+    type: 3}
+  _AITrafficController_StylizedVehiclesPack: {fileID: 6626368814616383543, guid: 52dc72c0dd508d042afed0c62dbd13b1,
+    type: 3}
+  _AITrafficLightManager: {fileID: 3195485895411473263, guid: e4c6e2eaa93c4bbc943634ddd3294312,
+    type: 3}
+  _AITrafficSpawnPoint: {fileID: 8876932130203124576, guid: 1c3c710267386ec41998e6487d35f688,
+    type: 3}
+  _AITrafficStopManager: {fileID: 859582486139554973, guid: 92b943d61e65c8741aa94cf25311f743,
+    type: 3}
+  _AITrafficWaypoint: {fileID: 6037620882929572414, guid: d272b1c1ab6e4d9e82c1dbba768c59e0,
+    type: 3}
+  _AITrafficWaypointRoute: {fileID: 3082157904087339595, guid: 49fbee8737654e4abde06b9411bded02,
+    type: 3}
+  _SplineRouteCreator: {fileID: 4562275120394118828, guid: 39a92cdef6d57b749938e8af2099fb51,
+    type: 3}
+  _YieldTrigger: {fileID: 7269415032235776793, guid: cba2bea4bea1ae74aa99499cc04f7b4d,
+    type: 3}
+  _StopSign: {fileID: 367671888436937686, guid: 269be4e114ebff34e87fb9b40272604f,
+    type: 3}
+  _TrafficLight_1: {fileID: 100018, guid: 215c142e3cbb47e6ba60862018157540, type: 3}
+  _TrafficLight_2: {fileID: 100018, guid: 86a3c389d98942b9a953b681e209aeda, type: 3}
+  _TrafficLight_3: {fileID: 100018, guid: b801e70441ce4b1ca5321b50c67a6045, type: 3}

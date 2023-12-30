@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6626368814616383543
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6626368814616383545}
+  - component: {fileID: 6626368814616383546}
+  m_Layer: 0
+  m_Name: AITrafficController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6626368814616383545
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6626368814616383543}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6626368814616383546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6626368814616383543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c342c37dd3443c68a815fa69ec4a043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trafficPrefabs:
+  - {fileID: 8999319418621530975, guid: 4fa72858a3a144b883ba6761eb90cf06, type: 3}
+  useYieldTriggers: 0
+  speedMultiplier: 2.2369363
+  steerSensitivity: 0.03
+  maxSteerAngle: 40
+  stopThreshold: 2
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1073741824
+  frontSensorSize: {x: 1.3, y: 1, z: 0.001}
+  frontSensorFacesTarget: 0
+  useLaneChanging: 0
+  changeLaneTrigger: 3
+  minSpeedToChangeLanes: 10
+  changeLaneCooldown: 5
+  unassignedBrakeMaterial: {fileID: 2100000, guid: acfce65dffe21b34f922bf65fc07bc05,
+    type: 2}
+  brakeOnIntensityURP: 1
+  brakeOnIntensityHDRP: 10
+  brakeOnIntensityDP: 10
+  brakeOffIntensityURP: -3
+  brakeOffIntensityHDRP: 0
+  brakeOffIntensityDP: -3
+  setCarParent: 0
+  carParent: {fileID: 0}
+  showPoolingWarning: 1
+  usePooling: 0
+  centerPoint: {fileID: 0}
+  useRouteLimit: 0
+  carsInPool: 200
+  density: 200
+  spawnRate: 2
+  disabledPosition: {x: 0, y: -2000, z: 0}
+  minSpawnZone: 50
+  cullHeadLight: 100
+  actizeZone: 225
+  spawnZone: 350
