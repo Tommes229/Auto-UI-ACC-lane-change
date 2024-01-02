@@ -7,7 +7,16 @@ public class accSpeedControl : MonoBehaviour
 {
     private float ACCInputSpeed = 50f;
     public TextMeshProUGUI ACCInputSpeedText;
+
+    private bool ACCONOFF = false;
+    public TextMeshProUGUI ACCONOFFText;
     public bool Trigger = false;
+
+
+    //array list of all the cars in the trigger
+    public List<GameObject> carsInTrigger = new List<GameObject>();
+    public List<GameObject> carsInTriggerToRemove = new List<GameObject>();
+    private float slowDownFactor = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -17,19 +26,65 @@ public class accSpeedControl : MonoBehaviour
 
     void FixedUpdate() {
 
-        //if the trigger is true, decrease the velocity of the object
-        if (Trigger) {
-            Debug.Log("Trigger is true");
-            GetComponent<Rigidbody>().velocity -= GetComponent<Rigidbody>().velocity.normalized * 0.2f;
-        } else {
-            //if the trigger is false, increase the velocity of the object
-            if (GetComponent<Rigidbody>().velocity.magnitude * 3.6f < ACCInputSpeed) {
-                GetComponent<Rigidbody>().velocity += GetComponent<Rigidbody>().velocity.normalized * 0.1f;
+        if (ACCONOFF) {
+            //if the trigger is true and faster than 1 km/h, decrease the velocity of the object
+            if (Trigger) {
+
+                //remove all cars that are not in the trigger anymore
+                foreach (GameObject car in carsInTriggerToRemove) {
+                    carsInTrigger.Remove(car);
+                    carsInTriggerToRemove.Remove(car);  
+                }
+
+                //for all cars in the trigger, get the closest one  
+                float closestDistance = Mathf.Infinity;
+                foreach (GameObject car in carsInTrigger) {
+                    float distance = Vector3.Distance(transform.position, car.transform.position);
+                    if (distance < closestDistance) {
+                        closestDistance = distance;
+                    }
+                }
+
+                print(closestDistance);
+                switch(closestDistance) {
+                    case float n when (n < 8f):
+                        slowDownFactor = 1f;
+                        break;
+                    case float n when (n < 9f):
+                        slowDownFactor = 0.9f;
+                        break;
+                    case float n when (n < 11f):
+                        slowDownFactor = 0.6f;
+                        break;
+                    case float n when (n < 13f):
+                        slowDownFactor = 0.4f;
+                        break;
+                    case float n when (n < 15f):
+                        slowDownFactor = 0.2f;
+                        break;
+                    default:
+                        slowDownFactor = 0.1f;
+                        break;
+                }
+
+                //check if the car gets negative velocity
+                if (closestDistance < 6f && GetComponent<Rigidbody>().velocity.magnitude <= 1f) {
+                    GetComponent<Rigidbody>().velocity = Vector3.zero;
+                
+                } else if (slowDownFactor == 1f) {
+                    GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity * 0.4f;
+                } else {
+                    GetComponent<Rigidbody>().velocity -= GetComponent<Rigidbody>().velocity.normalized * slowDownFactor;
+                }
+            
+
+            //if the trigger is false, increase the velocity of the object    
+            } else if (GetComponent<Rigidbody>().velocity.magnitude * 3.6f < ACCInputSpeed && GetComponent<Rigidbody>().velocity.magnitude > 1f) {
+                  GetComponent<Rigidbody>().velocity += GetComponent<Rigidbody>().velocity.normalized * 0.1f;
             }
         }
-        
-
     }
+
 
     // Update is called once per frame
     void Update () {
@@ -40,6 +95,10 @@ public class accSpeedControl : MonoBehaviour
             ACCInputSpeed -= 5f;
         }
 
+        if (Input.GetKeyDown(KeyCode.B)) {
+            ACCONOFF = !ACCONOFF;
+            ACCONOFFText.text = "ACC: " + ACCONOFF;
+        }
         ACCInputSpeedText.text = "ACC: " + ACCInputSpeed + "km/h";  
     }
 }

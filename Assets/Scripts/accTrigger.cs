@@ -27,6 +27,7 @@ public class accTrigger : MonoBehaviour
 
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             player.GetComponent<accSpeedControl>().Trigger = true;
+            player.GetComponent<accSpeedControl>().carsInTrigger.Add(other.gameObject);
         }
     }
 
@@ -37,6 +38,7 @@ public class accTrigger : MonoBehaviour
             if (inTriggerCounter == 0) {
                 GameObject player = GameObject.FindGameObjectWithTag("Player");
                 player.GetComponent<accSpeedControl>().Trigger = false;
+                player.GetComponent<accSpeedControl>().carsInTrigger.Remove(other.gameObject);
             }
         }
     }
