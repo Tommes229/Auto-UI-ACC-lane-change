@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class accTrigger : MonoBehaviour
+public class AccTrigger : MonoBehaviour
 {
     private int inTriggerCounter = 0;
 
@@ -26,8 +26,8 @@ public class accTrigger : MonoBehaviour
             inTriggerCounter++;
 
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-            player.GetComponent<accSpeedControl>().Trigger = true;
-            player.GetComponent<accSpeedControl>().carsInTrigger.Add(other.gameObject);
+            player.GetComponent<AccSpeedControl>().Trigger = true;
+            player.GetComponent<AccSpeedControl>().carsInTrigger.Add(other.gameObject);
         }
     }
 
@@ -37,8 +37,8 @@ public class accTrigger : MonoBehaviour
             inTriggerCounter--;
             if (inTriggerCounter == 0) {
                 GameObject player = GameObject.FindGameObjectWithTag("Player");
-                player.GetComponent<accSpeedControl>().Trigger = false;
-                player.GetComponent<accSpeedControl>().carsInTrigger.Remove(other.gameObject);
+                player.GetComponent<AccSpeedControl>().Trigger = false;
+                player.GetComponent<AccSpeedControl>().carsInTrigger.Remove(other.gameObject);
             }
         }
     }

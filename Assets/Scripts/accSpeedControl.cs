@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class accSpeedControl : MonoBehaviour
+public class AccSpeedControl : MonoBehaviour
 {
     private float ACCInputSpeed = 50f;
     public TextMeshProUGUI ACCInputSpeedText;
@@ -18,11 +18,30 @@ public class accSpeedControl : MonoBehaviour
     public List<GameObject> carsInTriggerToRemove = new List<GameObject>();
     private float slowDownFactor = 0f;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
+        switch(PlayerPrefs.GetInt("GameValue")) {
+            case 0:
+                transform.position = new Vector3(0f, 0f, -117f);
+                break;
+            case 1:
+                transform.position = new Vector3(-63f, 0f, -3f);
+                break;
+            case 2:
+                transform.position = new Vector3(-69f, 0f, 104f);
+                break;
+            default:
+                Debug.Log("Error: GameValue not set");
+                break;
+        }
     }
+
+
+
 
     void FixedUpdate() {
 
