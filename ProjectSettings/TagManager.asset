@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Fire
   - AICar
+  - Door
+  - Collider
   layers:
   - Default
   - TransparentFX
