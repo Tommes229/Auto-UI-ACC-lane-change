@@ -16,7 +16,6 @@ namespace UnityStandardAssets.Vehicles.Car
         private float handbrake = 0f;
         private CarController m_Car; // the car controller we want to use
 
-
         private void Awake()
         {
             // get the car controller
@@ -42,5 +41,5 @@ namespace UnityStandardAssets.Vehicles.Car
 
             m_Car.Move(h, v, v, handbrake);
         }
-    }
+    }    
 }
