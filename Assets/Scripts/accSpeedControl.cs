@@ -23,6 +23,7 @@ public class AccSpeedControl : MonoBehaviour
     private CarController carC;
     private bool RecentInput = false;
     private CarUserControl carUserControl;
+    private bool carStopped = false;
 
 
 
@@ -91,58 +92,66 @@ public class AccSpeedControl : MonoBehaviour
                 switch(closestDistance) {
                     case float n when (n < 8f):
                         if (GetComponent<Rigidbody>().velocity.magnitude > 2f) {
-                            carUserControl.hACC = 1f;
+                            carUserControl.vACC = -1f;
                         } else {
-                            carUserControl.hACC = 1f;
+                            carUserControl.vACC = 0f;
                             GetComponent<Rigidbody>().velocity = Vector3.zero;
+                            carStopped = true;
                         }
-                        carUserControl.vACC = 0f;
+                        print("case 1");
                         break;
 
                     case float n when (n < 11f):
                         if (GetComponent<Rigidbody>().velocity.magnitude < 2f) {
-                            carUserControl.hACC = 1f;
+                            carUserControl.vACC = -1f;
                             GetComponent<Rigidbody>().velocity = Vector3.zero;
+                            carStopped = true;
                         } else if (GetComponent<Rigidbody>().velocity.magnitude * 3.6f > closestCarVelocity) {
-                            carUserControl.hACC = 1f;
+                            carUserControl.vACC = -0.8f;
                         } else {
-                            carUserControl.hACC = 0f;
+                            carUserControl.vACC = 0f;
                         }
-                        carUserControl.vACC = 0f;
+                        print("case 2");
                         break;
 
                     case float n when (n < 18f):
-                        if (GetComponent<Rigidbody>().velocity.magnitude * 3.6f > closestCarVelocity) {
+                        if (GetComponent<Rigidbody>().velocity.magnitude * 3.6f > closestCarVelocity && GetComponent<Rigidbody>().velocity.magnitude > 2f) {
                             if (GetComponent<Rigidbody>().velocity.magnitude * 3.6f - closestCarVelocity > 10f) {
-                                carUserControl.hACC = 1f;
+                                carUserControl.vACC = -1f;
                             } else {
-                                carUserControl.hACC = 0.5f;
+                                carUserControl.vACC = -0.5f;
                             }
                         } else if (GetComponent<Rigidbody>().velocity.magnitude * 3.6f < closestCarVelocity-2f) {         
                             carUserControl.vACC = 1f;
                         } else {
-                            carUserControl.hACC = 0f;
+                            carUserControl.vACC = 0f;
                         }
+                        print("case 3");
                         break;
                     default:
                         if (GetComponent<Rigidbody>().velocity.magnitude * 3.6f > closestCarVelocity) {
                             if (GetComponent<Rigidbody>().velocity.magnitude * 3.6f - closestCarVelocity > 30f) {
-                                carUserControl.hACC = 1f;
+                                carUserControl.vACC = -1f;
                             } else {
-                                carUserControl.hACC = 0.5f;
+                                carUserControl.vACC = -0.3f;
                             }
                         } else if (GetComponent<Rigidbody>().velocity.magnitude * 3.6f < closestCarVelocity-2f) {         
                             carUserControl.vACC = 1f;
                         } else {
-                            carUserControl.hACC = 0f;
+                            carUserControl.vACC = 0f;
                         }
+                        print("case 4");
                         break;
                 }
             
 
             //if the trigger is false, increase the velocity of the object    
-            } else if (GetComponent<Rigidbody>().velocity.magnitude * 3.6f < ACCInputSpeed) {        
-                carUserControl.vACC = 1f;
+            } else if (GetComponent<Rigidbody>().velocity.magnitude * 3.6f < ACCInputSpeed) {   
+                if (carStopped) {
+                    carUserControl.hACC = -1f;
+                    carStopped = false;
+                } 
+                carUserControl.vACC = 1f;        
             } else {
                 carUserControl.vACC = 0f;
             }

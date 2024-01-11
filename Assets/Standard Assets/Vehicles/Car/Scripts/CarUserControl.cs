@@ -27,20 +27,18 @@ namespace UnityStandardAssets.Vehicles.Car
         private void FixedUpdate()
         {
             if (ACCONOFF) {
-                v = vACC;
-                handbrake = hACC;     
+                v = vACC;     
             } else {
                 v = CrossPlatformInputManager.GetAxis("Vertical");
-
-                if (Input.GetKey(KeyCode.Space)) {
-                    handbrake = 1f;
-                } else {
-                    handbrake = 0f;
-                }
             }
-            h = CrossPlatformInputManager.GetAxis("Horizontal");
 
-            print(handbrake);
+            if (Input.GetKey(KeyCode.Space)) {
+                handbrake = 1f;
+            } else {
+                handbrake = 0f;
+            }
+
+            h = CrossPlatformInputManager.GetAxis("Horizontal");
 
             m_Car.Move(h, v, v, handbrake);
         }
