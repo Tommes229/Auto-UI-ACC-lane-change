@@ -64,7 +64,6 @@ public class AccSpeedControl : MonoBehaviour
                     }
                 }
 
-                print(closestDistance);
                 switch(closestDistance) {
                     case float n when (n < 8f):
                         slowDownFactor = 1f;
