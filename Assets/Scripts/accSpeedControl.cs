@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+using UnityStandardAssets.Vehicles.Car;
+
 public class AccSpeedControl : MonoBehaviour
 {
     private float ACCInputSpeed = 50f;
@@ -16,7 +18,12 @@ public class AccSpeedControl : MonoBehaviour
     //array list of all the cars in the trigger
     public List<GameObject> carsInTrigger = new List<GameObject>();
     public List<GameObject> carsInTriggerToRemove = new List<GameObject>();
-    private float slowDownFactor = 0f;
+    private Vector3 lastDirection = Vector3.zero;
+    //create car controller
+    private CarController carC;
+    private bool RecentInput = false;
+    private CarUserControl carUserControl;
+
 
 
 
@@ -38,6 +45,9 @@ public class AccSpeedControl : MonoBehaviour
                 Debug.Log("Error: GameValue not set");
                 break;
         }
+
+        carC = GetComponent<CarController>();
+        carUserControl = carC.GetComponent<CarUserControl>();
     }
 
 
@@ -45,10 +55,17 @@ public class AccSpeedControl : MonoBehaviour
 
     void FixedUpdate() {
 
-        if (ACCONOFF) {
-            //if the trigger is true and faster than 1 km/h, decrease the velocity of the object
-            if (Trigger) {
+        //if the key s is pressed, set recentinput to true
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Space)) {
+            RecentInput = true;
+            Invoke("ResetRecentInput", 0.5f);
+        }
 
+        if (ACCONOFF && RecentInput == false) {
+            carUserControl.ACCONOFF = true;
+            
+            //if the trigger is true, slow down the car
+            if (Trigger) {
                 //remove all cars that are not in the trigger anymore
                 foreach (GameObject car in carsInTriggerToRemove) {
                     carsInTrigger.Remove(car);
@@ -57,60 +74,91 @@ public class AccSpeedControl : MonoBehaviour
 
                 //for all cars in the trigger, get the closest one  
                 float closestDistance = Mathf.Infinity;
+                GameObject closestCar = null;
+                float closestCarVelocity = Mathf.Infinity;
+
                 foreach (GameObject car in carsInTrigger) {
                     float distance = Vector3.Distance(transform.position, car.transform.position);
                     if (distance < closestDistance) {
                         closestDistance = distance;
+                        closestCar = car;
                     }
                 }
 
-                print(closestDistance);
+                //get the velocity of the closest car
+                closestCarVelocity = closestCar.GetComponent<Rigidbody>().velocity.magnitude * 3.6f;
+
                 switch(closestDistance) {
                     case float n when (n < 8f):
-                        slowDownFactor = 1f;
+                        if (GetComponent<Rigidbody>().velocity.magnitude > 2f) {
+                            carUserControl.hACC = 1f;
+                        } else {
+                            carUserControl.hACC = 1f;
+                            GetComponent<Rigidbody>().velocity = Vector3.zero;
+                        }
+                        carUserControl.vACC = 0f;
                         break;
-                    case float n when (n < 9f):
-                        slowDownFactor = 0.9f;
-                        break;
+
                     case float n when (n < 11f):
-                        slowDownFactor = 0.6f;
+                        if (GetComponent<Rigidbody>().velocity.magnitude < 2f) {
+                            carUserControl.hACC = 1f;
+                            GetComponent<Rigidbody>().velocity = Vector3.zero;
+                        } else if (GetComponent<Rigidbody>().velocity.magnitude * 3.6f > closestCarVelocity) {
+                            carUserControl.hACC = 1f;
+                        } else {
+                            carUserControl.hACC = 0f;
+                        }
+                        carUserControl.vACC = 0f;
                         break;
-                    case float n when (n < 13f):
-                        slowDownFactor = 0.4f;
-                        break;
-                    case float n when (n < 15f):
-                        slowDownFactor = 0.2f;
+
+                    case float n when (n < 18f):
+                        if (GetComponent<Rigidbody>().velocity.magnitude * 3.6f > closestCarVelocity) {
+                            if (GetComponent<Rigidbody>().velocity.magnitude * 3.6f - closestCarVelocity > 10f) {
+                                carUserControl.hACC = 1f;
+                            } else {
+                                carUserControl.hACC = 0.5f;
+                            }
+                        } else if (GetComponent<Rigidbody>().velocity.magnitude * 3.6f < closestCarVelocity-2f) {         
+                            carUserControl.vACC = 1f;
+                        } else {
+                            carUserControl.hACC = 0f;
+                        }
                         break;
                     default:
-                        slowDownFactor = 0.1f;
+                        if (GetComponent<Rigidbody>().velocity.magnitude * 3.6f > closestCarVelocity) {
+                            if (GetComponent<Rigidbody>().velocity.magnitude * 3.6f - closestCarVelocity > 30f) {
+                                carUserControl.hACC = 1f;
+                            } else {
+                                carUserControl.hACC = 0.5f;
+                            }
+                        } else if (GetComponent<Rigidbody>().velocity.magnitude * 3.6f < closestCarVelocity-2f) {         
+                            carUserControl.vACC = 1f;
+                        } else {
+                            carUserControl.hACC = 0f;
+                        }
                         break;
-                }
-
-                //check if the car gets negative velocity
-                if (closestDistance < 6f && GetComponent<Rigidbody>().velocity.magnitude <= 1f) {
-                    GetComponent<Rigidbody>().velocity = Vector3.zero;
-                
-                } else if (slowDownFactor == 1f) {
-                    GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity * 0.4f;
-                } else {
-                    GetComponent<Rigidbody>().velocity -= GetComponent<Rigidbody>().velocity.normalized * slowDownFactor;
                 }
             
 
             //if the trigger is false, increase the velocity of the object    
-            } else if (GetComponent<Rigidbody>().velocity.magnitude * 3.6f < ACCInputSpeed && GetComponent<Rigidbody>().velocity.magnitude > 1f) {
-                  GetComponent<Rigidbody>().velocity += GetComponent<Rigidbody>().velocity.normalized * 0.1f;
+            } else if (GetComponent<Rigidbody>().velocity.magnitude * 3.6f < ACCInputSpeed) {        
+                carUserControl.vACC = 1f;
+            } else {
+                carUserControl.vACC = 0f;
             }
+        } else {
+            carUserControl.ACCONOFF = false;
         }
     }
 
 
     // Update is called once per frame
     void Update () {
+
         //increase accinputspeed once per keypress of c
-        if (Input.GetKeyDown(KeyCode.V)) {
+        if (Input.GetKeyDown(KeyCode.V) && ACCInputSpeed < 100f) {
             ACCInputSpeed += 5f;
-        } else if (Input.GetKeyDown(KeyCode.C)) {
+        } else if (Input.GetKeyDown(KeyCode.C) && ACCInputSpeed > 0f) {
             ACCInputSpeed -= 5f;
         }
 
@@ -119,5 +167,9 @@ public class AccSpeedControl : MonoBehaviour
             ACCONOFFText.text = "ACC: " + ACCONOFF;
         }
         ACCInputSpeedText.text = "ACC: " + ACCInputSpeed + "km/h";  
+    }
+
+    void ResetRecentInput() {
+        RecentInput = false;
     }
 }
