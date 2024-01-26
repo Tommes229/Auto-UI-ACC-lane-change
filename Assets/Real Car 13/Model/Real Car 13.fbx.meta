@@ -1,0 +1,370 @@
+fileFormatVersion: 2
+guid: 1e1f7fea9ff7e18488dc57c480d26d80
+timeCreated: 1555654156
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Air Pointer
+    100002: Backlight Glass Left
+    100004: Backlight Glass Right
+    100006: Backlight Left
+    100008: Backlight Right
+    100010: Battery Pointer
+    100012: BL
+    100014: Bonnet
+    100016: Boot
+    100018: Boot Glass
+    100020: BR
+    100022: Bumper Front
+    100024: Bumper Rear
+    100026: Chassis
+    100028: Door Left
+    100030: Door Left Glass
+    100032: Door Right
+    100034: Door Right Glass
+    100036: Engine Temp Pointer
+    100038: FL
+    100040: FR
+    100042: Front Glass
+    100044: Fuel Pointer
+    100046: Glasses
+    100048: Headlight Glass Left
+    100050: Headlight Glass Right
+    100052: Headlight Left
+    100054: Headlight Right
+    100056: Lights
+    100058: LOD1
+    100060: LOD1 1
+    100062: LOD1 10
+    100064: LOD1 11
+    100066: LOD1 2
+    100068: LOD1 3
+    100070: LOD1 4
+    100072: LOD1 5
+    100074: LOD1 6
+    100076: LOD1 7
+    100078: LOD1 8
+    100080: LOD1 9
+    100082: LOD2
+    100084: LOD2 1
+    100086: LOD2 10
+    100088: LOD2 11
+    100090: LOD2 2
+    100092: LOD2 3
+    100094: LOD2 4
+    100096: LOD2 5
+    100098: LOD2 6
+    100100: LOD2 7
+    100102: LOD2 8
+    100104: LOD2 9
+    100106: LOD3
+    100108: Pointers
+    100110: //RootNode
+    100112: Rear Glass
+    100114: RPM Pointer
+    100116: Small Glasses
+    100118: Speed Pointer
+    100120: Steering
+    100122: Wheels
+    400000: Air Pointer
+    400002: Backlight Glass Left
+    400004: Backlight Glass Right
+    400006: Backlight Left
+    400008: Backlight Right
+    400010: Battery Pointer
+    400012: BL
+    400014: Bonnet
+    400016: Boot
+    400018: Boot Glass
+    400020: BR
+    400022: Bumper Front
+    400024: Bumper Rear
+    400026: Chassis
+    400028: Door Left
+    400030: Door Left Glass
+    400032: Door Right
+    400034: Door Right Glass
+    400036: Engine Temp Pointer
+    400038: FL
+    400040: FR
+    400042: Front Glass
+    400044: Fuel Pointer
+    400046: Glasses
+    400048: Headlight Glass Left
+    400050: Headlight Glass Right
+    400052: Headlight Left
+    400054: Headlight Right
+    400056: Lights
+    400058: LOD1
+    400060: LOD1 1
+    400062: LOD1 10
+    400064: LOD1 11
+    400066: LOD1 2
+    400068: LOD1 3
+    400070: LOD1 4
+    400072: LOD1 5
+    400074: LOD1 6
+    400076: LOD1 7
+    400078: LOD1 8
+    400080: LOD1 9
+    400082: LOD2
+    400084: LOD2 1
+    400086: LOD2 10
+    400088: LOD2 11
+    400090: LOD2 2
+    400092: LOD2 3
+    400094: LOD2 4
+    400096: LOD2 5
+    400098: LOD2 6
+    400100: LOD2 7
+    400102: LOD2 8
+    400104: LOD2 9
+    400106: LOD3
+    400108: Pointers
+    400110: //RootNode
+    400112: Rear Glass
+    400114: RPM Pointer
+    400116: Small Glasses
+    400118: Speed Pointer
+    400120: Steering
+    400122: Wheels
+    2300000: Air Pointer
+    2300002: Backlight Glass Left
+    2300004: Backlight Glass Right
+    2300006: Backlight Left
+    2300008: Backlight Right
+    2300010: Battery Pointer
+    2300012: BL
+    2300014: Bonnet
+    2300016: Boot
+    2300018: Boot Glass
+    2300020: BR
+    2300022: Bumper Front
+    2300024: Bumper Rear
+    2300026: Chassis
+    2300028: Door Left
+    2300030: Door Left Glass
+    2300032: Door Right
+    2300034: Door Right Glass
+    2300036: Engine Temp Pointer
+    2300038: FL
+    2300040: FR
+    2300042: Front Glass
+    2300044: Fuel Pointer
+    2300046: Headlight Glass Left
+    2300048: Headlight Glass Right
+    2300050: Headlight Left
+    2300052: Headlight Right
+    2300054: LOD1
+    2300056: LOD1 1
+    2300058: LOD1 10
+    2300060: LOD1 11
+    2300062: LOD1 2
+    2300064: LOD1 3
+    2300066: LOD1 4
+    2300068: LOD1 5
+    2300070: LOD1 6
+    2300072: LOD1 7
+    2300074: LOD1 8
+    2300076: LOD1 9
+    2300078: LOD2
+    2300080: LOD2 1
+    2300082: LOD2 10
+    2300084: LOD2 11
+    2300086: LOD2 2
+    2300088: LOD2 3
+    2300090: LOD2 4
+    2300092: LOD2 5
+    2300094: LOD2 6
+    2300096: LOD2 7
+    2300098: LOD2 8
+    2300100: LOD2 9
+    2300102: LOD3
+    2300104: Rear Glass
+    2300106: RPM Pointer
+    2300108: Small Glasses
+    2300110: Speed Pointer
+    2300112: Steering
+    3300000: Air Pointer
+    3300002: Backlight Glass Left
+    3300004: Backlight Glass Right
+    3300006: Backlight Left
+    3300008: Backlight Right
+    3300010: Battery Pointer
+    3300012: BL
+    3300014: Bonnet
+    3300016: Boot
+    3300018: Boot Glass
+    3300020: BR
+    3300022: Bumper Front
+    3300024: Bumper Rear
+    3300026: Chassis
+    3300028: Door Left
+    3300030: Door Left Glass
+    3300032: Door Right
+    3300034: Door Right Glass
+    3300036: Engine Temp Pointer
+    3300038: FL
+    3300040: FR
+    3300042: Front Glass
+    3300044: Fuel Pointer
+    3300046: Headlight Glass Left
+    3300048: Headlight Glass Right
+    3300050: Headlight Left
+    3300052: Headlight Right
+    3300054: LOD1
+    3300056: LOD1 1
+    3300058: LOD1 10
+    3300060: LOD1 11
+    3300062: LOD1 2
+    3300064: LOD1 3
+    3300066: LOD1 4
+    3300068: LOD1 5
+    3300070: LOD1 6
+    3300072: LOD1 7
+    3300074: LOD1 8
+    3300076: LOD1 9
+    3300078: LOD2
+    3300080: LOD2 1
+    3300082: LOD2 10
+    3300084: LOD2 11
+    3300086: LOD2 2
+    3300088: LOD2 3
+    3300090: LOD2 4
+    3300092: LOD2 5
+    3300094: LOD2 6
+    3300096: LOD2 7
+    3300098: LOD2 8
+    3300100: LOD2 9
+    3300102: LOD3
+    3300104: Rear Glass
+    3300106: RPM Pointer
+    3300108: Small Glasses
+    3300110: Speed Pointer
+    3300112: Steering
+    4300000: Chassis
+    4300002: LOD1
+    4300004: LOD2
+    4300006: Bonnet
+    4300008: LOD1
+    4300010: LOD2
+    4300012: Boot
+    4300014: LOD1
+    4300016: LOD2
+    4300018: Boot Glass
+    4300020: Bumper Front
+    4300022: LOD1
+    4300024: LOD2
+    4300026: Bumper Rear
+    4300028: LOD1
+    4300030: LOD2
+    4300032: Door Left
+    4300034: LOD1
+    4300036: LOD2
+    4300038: Door Left Glass
+    4300040: Door Right
+    4300042: LOD1
+    4300044: LOD2
+    4300046: Door Right Glass
+    4300048: Steering
+    4300050: LOD1
+    4300052: LOD2
+    4300054: Front Glass
+    4300056: Rear Glass
+    4300058: Headlight Glass Right
+    4300060: Headlight Glass Left
+    4300062: Small Glasses
+    4300064: Backlight Glass Left
+    4300066: Backlight Glass Right
+    4300068: RPM Pointer
+    4300070: Speed Pointer
+    4300072: Battery Pointer
+    4300074: Air Pointer
+    4300076: Fuel Pointer
+    4300078: Engine Temp Pointer
+    4300080: Backlight Right
+    4300082: Backlight Left
+    4300084: Headlight Left
+    4300086: Headlight Right
+    4300088: FR
+    4300090: LOD1
+    4300092: LOD2
+    4300094: BR
+    4300096: LOD1
+    4300098: LOD2
+    4300100: BL
+    4300102: LOD1
+    4300104: LOD2
+    4300106: FL
+    4300108: LOD1
+    4300110: LOD2
+    4300112: LOD3
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

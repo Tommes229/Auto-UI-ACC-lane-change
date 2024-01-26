@@ -23,7 +23,6 @@ public class GetSpeed : MonoBehaviour
     void FixedUpdate() {
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
             wCounted++;
-            print("w:" + wCounted);
         }
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
             sCounted++; 
@@ -51,6 +50,14 @@ public class GetSpeed : MonoBehaviour
 
     public int getDCounted() {
         return dCounted;
+    }
+
+    public void resetCounted() {
+       
+        wCounted = 0;
+        sCounted = 0;
+        aCounted = 0;
+        dCounted = 0;
     }
     
 }

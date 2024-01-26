@@ -10,7 +10,7 @@ public class AccSpeedControl : MonoBehaviour
     private float ACCInputSpeed = 50f;
     public TextMeshProUGUI ACCInputSpeedText;
 
-    private bool ACCONOFF = false;
+    private bool ACCONOFF;
     public TextMeshProUGUI ACCONOFFText;
     public bool Trigger = false;
 
@@ -32,15 +32,18 @@ public class AccSpeedControl : MonoBehaviour
     void Start()
     {
 
+        ACCONOFF = PlayerPrefs.GetInt("ACC") == 1 ? true : false;
+        ACCONOFFText.text = "ACC: " + ACCONOFF;
+
         switch(PlayerPrefs.GetInt("GameValue")) {
             case 0:
                 transform.position = new Vector3(0f, 0f, -117f);
                 break;
             case 1:
-                transform.position = new Vector3(-63f, 0f, -3f);
+                setPosition2();
                 break;
             case 2:
-                transform.position = new Vector3(-69f, 0f, 104f);
+                setPosition3();
                 break;
             default:
                 Debug.Log("Error: GameValue not set");
@@ -52,7 +55,13 @@ public class AccSpeedControl : MonoBehaviour
     }
 
 
+    void setPosition2() {
+        transform.position = new Vector3(-63f, 0f, -3f);
+    }
 
+    void setPosition3() {
+        transform.position = new Vector3(-69f, 0f, 104f);
+    }
 
     void FixedUpdate() {
 
@@ -98,7 +107,6 @@ public class AccSpeedControl : MonoBehaviour
                             GetComponent<Rigidbody>().velocity = Vector3.zero;
                             carStopped = true;
                         }
-                        print("case 1");
                         break;
 
                     case float n when (n < 11f):
@@ -111,7 +119,6 @@ public class AccSpeedControl : MonoBehaviour
                         } else {
                             carUserControl.vACC = 0f;
                         }
-                        print("case 2");
                         break;
 
                     case float n when (n < 18f):
@@ -126,7 +133,6 @@ public class AccSpeedControl : MonoBehaviour
                         } else {
                             carUserControl.vACC = 0f;
                         }
-                        print("case 3");
                         break;
                     default:
                         if (GetComponent<Rigidbody>().velocity.magnitude * 3.6f > closestCarVelocity) {
@@ -140,7 +146,6 @@ public class AccSpeedControl : MonoBehaviour
                         } else {
                             carUserControl.vACC = 0f;
                         }
-                        print("case 4");
                         break;
                 }
             
