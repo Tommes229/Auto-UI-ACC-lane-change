@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GetSpeed : MonoBehaviour
 {
@@ -33,7 +34,10 @@ public class GetSpeed : MonoBehaviour
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
             dCounted++;
         }
-       
+
+        if (Input.GetKey(KeyCode.Escape)) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        }
     }
 
     public int getWCounted() {

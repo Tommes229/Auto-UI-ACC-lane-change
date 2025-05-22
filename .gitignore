@@ -73,3 +73,8 @@ crashlytics-build.properties
 
 /Assets/Package/*
 /Assets/SuburbNeighborhoodHousePack/*
+
+/Assets/Scripts/person1/
+/Assets/Scripts/person1.meta
+
+
