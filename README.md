@@ -9,7 +9,7 @@ This project provided an interactive car driving experience where users drove in
 1. **Without ACC:** Manual control of the car's speed and distance.
 2. **With ACC:** ACC system assists the driver by automatically maintaining speed and safe distance from vehicles ahead.
 
-The aim is to assess the potential benefits and usability of ACC for drivers.
+The aim was to assess the potential benefits and usability of ACC for drivers.
 
 ---
 
