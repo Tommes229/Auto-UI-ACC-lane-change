@@ -64,6 +64,6 @@ This project was created for a university study to compare driver experience and
 
 ## Credits
 
-- Developed by Mukhtar Muse and Mattis Buehler in University Ulm
+- Developed by Mukhtar Muse and Mattis Buehler at University Ulm
 
 ---
